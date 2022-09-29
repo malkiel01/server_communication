@@ -15,7 +15,7 @@ var statusUpdateStreet = 0
 var statusUpdateZipcode = 0
 
 const corsOptions ={
-    origin:'http://192.168.0.100:3000', 
+    origin:'*', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
