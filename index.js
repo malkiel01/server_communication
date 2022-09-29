@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const bodyParser = require('body-parser')
 const mysql = require('mysql')
-const cors = require('cors')
 const db = mysql.createPool({
     host: "mbe-works.com",
     user: "mbeplusc_communi",
@@ -14,7 +14,12 @@ var statusUpdateCity = 0
 var statusUpdateStreet = 0
 var statusUpdateZipcode = 0
 
-app.use(cors())
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(), corsOptions)
 app.use(express.json({limit: '150mb'}));
 app.use(bodyParser.urlencoded({limit: '150mb', extended: true}))
 
